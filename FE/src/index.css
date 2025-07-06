@@ -1,0 +1,111 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Import your existing design system */
+@import './design-system.css';
+
+/* Additional base styles */
+@layer base {
+  body {
+    margin: 0;
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: var(--background);
+    color: var(--foreground);
+  }
+
+  code {
+    font-family: var(--font-mono);
+  }
+
+  /* Ensure proper color inheritance */
+  * {
+    border-color: var(--border);
+  }
+}
+
+/* Component styles */
+@layer components {
+  .btn {
+    @apply px-4 py-2 rounded-lg font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2;
+  }
+
+  .btn-primary {
+    @apply bg-primary text-primary-foreground font-medium rounded-md transition-colors;
+  }
+
+  .btn-primary:hover {
+    opacity: 0.9;
+  }
+
+  .btn-secondary {
+    @apply bg-secondary text-secondary-foreground font-medium rounded-md transition-colors;
+  }
+
+  .btn-secondary:hover {
+    opacity: 0.8;
+  }
+
+  .btn-destructive {
+    @apply bg-destructive text-destructive-foreground;
+  }
+
+  .btn-destructive:hover {
+    opacity: 0.9;
+  }
+
+  .input {
+    @apply px-3 py-2 rounded-md border border-border bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent transition-colors;
+  }
+
+  .card {
+    @apply bg-card border border-border rounded-lg p-6;
+  }
+
+  /* AI Insights specific styles */
+  .ai-insight {
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05));
+    border-left: 4px solid var(--primary);
+  }
+
+  .query-tag {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+    background-color: rgba(0, 0, 0, 0.1);
+    color: var(--primary);
+  }
+
+  .insight-item {
+    @apply flex items-start space-x-2 p-2 rounded-md transition-colors;
+  }
+
+  .insight-item:hover {
+    background-color: var(--muted);
+    opacity: 0.5;
+  }
+
+  /* Loading animation */
+  .loading-pulse {
+    @apply animate-pulse bg-muted rounded;
+  }
+
+  /* Line clamp utility */
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
+
+/* Utility styles */
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .dark .ai-insight {
+    background: linear-gradient(to right, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1));
+  }
+} 

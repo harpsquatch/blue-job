@@ -1,0 +1,6 @@
+fastapi
+uvicorn[standard]
+typesense
+openai
+python-dotenv
+pydantic 
