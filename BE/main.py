@@ -1,6 +1,6 @@
 from fastapi import FastAPI, HTTPException, Query
 from fastapi.middleware.cors import CORSMiddleware
-from routes import job_routes, admin_routes
+from routes import job_routes, admin_routes, chat_routes
 from services.data_import_service import DataImportService
 from services.llm_query_parser import LLMQueryParser
 from services.llm_result_analyzer import LLMResultAnalyzer
@@ -24,6 +24,7 @@ app.add_middleware(
 # Include routers
 app.include_router(job_routes.router)
 app.include_router(admin_routes.router)
+app.include_router(chat_routes.router)
 
 # Initialize data import service
 data_import_service = DataImportService()
